@@ -2,7 +2,7 @@ const input = document.querySelector('input');
 const add = document.querySelector('.plus');
 const lists = document.querySelector('.lists');
 const list = document.querySelector('.list');
-
+const remove = document.querySelector('.remove_all');
 function add_context() {
 	const list = document.createElement('li');
 	const image = document.createElement('img');
@@ -22,4 +22,8 @@ function show_name(e) {
 
 function add_value() {
 	add_context();
+}
+
+function remove_all() {
+	list.remove();
 }
