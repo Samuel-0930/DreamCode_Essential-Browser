@@ -2,14 +2,10 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Shopping List</title>
-		<script src="main.js"></script>
-		<link
-			rel="stylesheet"
-			href="style.css" />
+		<script src="main.js" defer></script>
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
 		<div class="container">
@@ -18,13 +14,17 @@
 			</header>
 			<main>
 				<ol class="lists"></ol>
-				<input type="text" />
+				<input
+					type="text"
+					placeholder="쇼핑목록을 입력해주세요!!"
+					onkeypress="show_name(event)" />
 			</main>
 			<footer>
 				<img
 					class="image plus"
 					src="img/plus.png"
-					alt="plus icon" />
+					alt="plus icon"
+					onclick="add_value()" />
 			</footer>
 		</div>
 	</body>
