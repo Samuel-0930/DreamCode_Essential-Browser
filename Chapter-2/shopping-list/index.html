@@ -3,30 +3,33 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Shopping List</title>
+		<title>Document</title>
 		<script src="main.js" defer></script>
+		<script
+			src="https://kit.fontawesome.com/d2d156b327.js"
+			crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<div class="container">
-			<header>
-				<h1 class="title">Shopping List</h1>
-			</header>
-			<main>
-				<ol class="lists"></ol>
-				<input
-					type="text"
-					placeholder="쇼핑목록을 입력해주세요!!"
-					onkeypress="show_name(event)" />
-			</main>
-			<footer>
-				<img
-					class="image plus"
-					src="img/plus.png"
-					alt="plus icon"
-					onclick="add_value()" />
-				<button class="remove_all">Remove all</button>
+		<section class="list">
+			<header class="header">Shopping List</header>
+			<ul class="items">
+				<li class="item__row">
+					<div class="item">
+						<span class="item__name">Egg</span>
+						<button class="item__delete">
+							<i class="fa-solid fa-trash"></i>
+						</button>
+					</div>
+					<div class="item__divider"></div>
+				</li>
+			</ul>
+			<footer class="footer">
+				<input type="text" class="footer__input" />
+				<button class="footer__button">
+					<i class="fa-solid fa-plus"></i>
+				</button>
 			</footer>
-		</div>
+		</section>
 	</body>
 </html>
