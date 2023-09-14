@@ -1,29 +1,55 @@
-const input = document.querySelector('input');
-const add = document.querySelector('.plus');
-const lists = document.querySelector('.lists');
-const list = document.querySelector('.list');
-const remove = document.querySelector('.remove_all');
-function add_context() {
-	const list = document.createElement('li');
-	const image = document.createElement('img');
-	list.setAttribute('class', 'list');
-	image.setAttribute('class', 'list__image--delete');
-	image.src = 'img/trash can.png';
-	list.textContent = input.value;
-	lists.appendChild(list);
-	list.appendChild(image);
-	input.value = null;
-}
-function show_name(e) {
-	if (e.keyCode == 13) {
-		add_context();
+const items = document.querySelector('.items');
+const input = document.querySelector('.footer__input');
+const addBtn = document.querySelector('.footer__button');
+
+function onAdd() {
+	const text = input.value;
+	if (text === '') {
+		input.focus();
+		return;
 	}
+	const newItem = createItem(text);
+	items.appendChild(newItem);
+	newItem.scrollIntoView({ block: 'center' });
+	input.value = '';
+	input.focus();
 }
 
-function add_value() {
-	add_context();
+function createItem(text) {
+	const itemRow = document.createElement('li');
+	itemRow.setAttribute('class', 'item__row');
+
+	const item = document.createElement('div');
+	item.setAttribute('class', 'item');
+
+	const name = document.createElement('span');
+	name.setAttribute('class', 'item__name');
+	name.innerText = text;
+
+	const deleteBtn = document.createElement('button');
+	deleteBtn.setAttribute('class', 'item__delete');
+	deleteBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+	deleteBtn.addEventListener('click', () => {
+		items.removeChild(itemRow);
+	});
+
+	const itemDivider = document.createElement('div');
+	itemDivider.setAttribute('class', 'item__divider');
+
+	item.appendChild(name);
+	item.appendChild(deleteBtn);
+
+	itemRow.appendChild(item);
+	itemRow.appendChild(itemDivider);
+	return itemRow;
 }
 
-function remove_all() {
-	list.remove();
-}
+addBtn.addEventListener('click', () => {
+	onAdd();
+});
+
+input.addEventListener('keypress', function (e) {
+	if (e.key === 'Enter') {
+		onAdd();
+	}
+});
