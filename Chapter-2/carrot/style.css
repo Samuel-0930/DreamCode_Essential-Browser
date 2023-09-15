@@ -1,0 +1,30 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: rgb(52, 81, 136);
+	display: flex;
+	justify-content: center;
+	margin: 0;
+}
+
+.screen {
+	width: 600px;
+	height: 400px;
+	background-image: url(img/background.png);
+	background-size: cover;
+	margin-top: 32px;
+}
+
+#tools__playBtn {
+	display: block;
+	width: 50px;
+	height: 50px;
+	background-color: rgb(250, 250, 133);
+	margin: auto;
+	margin-top: 10px;
+	border-width: 3px;
+	font-size: 32px;
+	border-radius: 12px;
+}
