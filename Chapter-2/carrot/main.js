@@ -5,8 +5,6 @@ const img = playBtn.querySelector('i');
 let isPlay = false;
 let interval;
 
-function reset() {}
-
 function playBtnChange() {
 	const img = playBtn.querySelector('i');
 	if (img.id === 'play') {
@@ -33,6 +31,9 @@ function playMusic() {
 function timer(isPlay, interval) {
 	if (isPlay === true) {
 		let i = 10;
+
+		clock.innerText = `00:${i}`;
+		i--;
 
 		interval = setInterval(() => {
 			if (i < 0) {
